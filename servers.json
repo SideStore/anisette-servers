@@ -1,0 +1,32 @@
+{
+    "servers": [
+        {
+            "name": "SideStore",
+            "address": "https://ani.sidestore.io"
+        },
+        {
+            "name": "SideStore (.zip)",
+            "address": "https://ani.sidestore.zip"
+        },
+        {
+            "name": "SideStore (.xyz)",
+            "address": "https://ani.846969.xyz"
+        },
+        {
+            "name": "Macley",
+            "address": "http://5.249.163.88:6969"
+        },
+        {
+            "name": "Jawshoeadan",
+            "address": "https://anisette.jawshoeadan.me"
+        },
+        {
+            "name": "WesleyBryie",
+            "address": "https://ani.wesbryie.com"
+        },
+        {
+            "name": "Stossy11",
+            "address": "https://anisette.stossy11.com"
+        }
+    ]
+}
