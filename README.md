@@ -11,6 +11,8 @@ To add your own Anisette server to the official list, your Anisette server must 
 3. Your server should be an Anisette V3 server. We recommend [SideStore/omnisette-server](https://github.com/sidestore/omnisette-server) or [Dadoum/anisette-v3-server](https://github.com/dadoum/anisette-v3-server).
 4. HTTPS is recommended, but not necessary.
 
+To help increase the likelihood of your anisette server being listed, it is suggested that you tell us what anisette server you are running, and where it is being ran, for example: the cloud, your house, a workplace.
+
 If your server meets these requirements, please do the following:
 
 1. Fork the repo, and open it in a code or text editor of some sort.
