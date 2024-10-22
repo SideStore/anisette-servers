@@ -15,14 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Cache APT packages
-        uses: actions/cache@v4
-        with:
-          path: /var/cache/apt/archives
-          key: ${{ runner.os }}-apt-cache
-          restore-keys: |
-            ${{ runner.os }}-apt-cache
-
       - name: Update APT cache
         run: sudo apt-get update
 
@@ -37,3 +29,11 @@ jobs:
           else
             echo "servers.json is valid"
           fi
+
+      - name: Cache APT packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: ${{ runner.os }}-apt-cache
+          restore-keys: |
+            ${{ runner.os }}-apt-cache
