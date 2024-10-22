@@ -31,12 +31,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Update APT cache
+        run: sudo apt-get update
+      - name: Install jq
+        run: sudo apt-get install -y jq
+      - name: Lint servers.json
+        run: |
+          if ! jq empty servers.json; then
+            echo "Invalid JSON file detected in servers.json"
+            exit 1
+          else
+            echo "servers.json is valid"
+          fi
+      - name: Cache APT packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: ${{ runner.os }}-apt-cache
+          restore-keys: |
+            ${{ runner.os }}-apt-cache
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
