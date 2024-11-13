@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Lint servers.json
         run: |
-          if ! jq empty servers.json > /dev/null 2>&1; then
+          if jq empty servers.json > /dev/null 2>&1; then
             echo "servers.json is valid"
           else
             echo "Invalid JSON file detected in servers.json"
