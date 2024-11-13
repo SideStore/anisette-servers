@@ -36,13 +36,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Lint servers.json
         run: |
-          if jq empty servers.json > /dev/null 2>&1; then
+          if ! jq empty servers.json > /dev/null 2>&1; then
             echo "servers.json is valid"
           else
             echo "Invalid JSON file detected in servers.json"
             exit 1
+          fi
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: Generate hash file
         run: |
           sha256sum servers.json | cut -d ' ' -f1 | cut -c1-8 > servers.json.hash
