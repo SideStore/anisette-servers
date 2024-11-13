@@ -1,57 +1,54 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Update APT cache
-        run: sudo apt-get update
-      - name: Install jq
-        run: sudo apt-get install -y jq
-      - name: Lint servers.json
-        run: |
-          if ! jq empty servers.json; then
-            echo "Invalid JSON file detected in servers.json"
-            exit 1
-          else
-            echo "servers.json is valid"
-          fi
       - name: Cache APT packages
         uses: actions/cache@v4
         with:
           path: /var/cache/apt/archives
-          key: ${{ runner.os }}-apt-cache
+          key: ${{ runner.os }}-apt-cache-${{ hashFiles('.github/apt-packs.txt') }}
           restore-keys: |
-            ${{ runner.os }}-apt-cache
+            ${{ runner.os }}-apt-cache-
+      - name: Update APT cache
+        run: sudo apt-get update
+      - name: Install dependencies
+        run: sudo apt-get install -y coreutils jq
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Lint servers.json
+        run: |
+          if jq empty servers.json > /dev/null 2>&1; then
+            echo "servers.json is valid"
+          else
+            echo "Invalid JSON file detected in servers.json"
+            exit 1
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
+      - name: Generate hash file
+        run: |
+          sha256sum servers.json | cut -d ' ' -f1 | cut -c1-8 > servers.json.hash
+      - name: Add hash URL to servers.json
+        run: |
+          jq --arg url "https://$(cat CNAME)/servers.json.hash" '. + {"cache": $url}' servers.json > servers.json
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
