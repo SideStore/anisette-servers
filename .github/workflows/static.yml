@@ -45,9 +45,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Generate hash file
+        if: ${{ vars.CREATE_CACHE_KEY == 'true' }}
         run: |
           sha256sum servers.json | cut -d ' ' -f1 | cut -c1-8 > servers.json.hash
       - name: Add hash URL to servers.json
+        if: ${{ vars.CREATE_CACHE_KEY == 'true' }}
         run: |
           jq --arg url "https://$(cat CNAME)/servers.json.hash" '. + {"cache": $url}' servers.json > tmp.json && mv tmp.json servers.json
       - name: Upload artifact
