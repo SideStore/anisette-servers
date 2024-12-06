@@ -43,10 +43,6 @@
         {
             "name": "iDH Server",
             "address": "https://ani.idevicehacked.com"
-        },
-        {
-            "name": "StikTech",
-            "address": "https://ani.stik.tech"
         }
     ]
 }
