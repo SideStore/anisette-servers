@@ -5,12 +5,20 @@
             "address": "https://ani.sidestore.io"
         },
         {
+            "name": "SideStore (.app)",
+            "address": "https://ani.sidestore.app"
+        },
+        {
             "name": "SideStore (.zip)",
             "address": "https://ani.sidestore.zip"
         },
         {
             "name": "SideStore (.xyz)",
             "address": "https://ani.846969.xyz"
+        },
+        {
+            "name": "nythepegasus",
+            "address": "https://ani.npeg.us"
         },
         {
             "name": "Stern",
