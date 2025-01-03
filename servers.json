@@ -51,6 +51,10 @@
         {
             "name": "iDH Server",
             "address": "https://ani.idevicehacked.com"
+        },
+        {
+            "name": "neoarz",   
+            "address": "https://neoarz.fly.dev"
         }
     ]
 }
