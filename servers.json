@@ -51,6 +51,10 @@
         {
             "name": "StikTech",
             "address": "https://ani.stik.tech"
+        },
+        {
+            "name": "Realmzer",
+            "address": "https://anisette.realmzer.xyz"
         }
     ]
 }
