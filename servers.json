@@ -54,7 +54,7 @@
         },
         {
             "name": "PUEHMC [China Server]",
-            "address": "https://ani.pueh.cn"
+            "address": "https://ani.pueh.cn:6969"
         }
     ]
 }
