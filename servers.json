@@ -51,6 +51,10 @@
         {
             "name": "Jayden's Server",
             "address": "https://ani.jaydenha.uk"
+        },
+        {
+            "name": "PUEHMC [China Server]",
+            "address": "https://ani.pueh.cn"
         }
     ]
 }
