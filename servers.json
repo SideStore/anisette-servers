@@ -55,6 +55,10 @@
         {
             "name": "crystall1nedev's server",
             "address": "https://anisette.crystall1ne.dev"
+        },
+        {
+            "name": "Handoff (kant.ovh)",
+            "address": "https://anisette.kant.ovh"
         }
     ]
 }
