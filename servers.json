@@ -94,6 +94,11 @@
             "name": "ethxn's omnisette server :3",
             "address": "https://omni.ethxn.xyz",
             "kind": 0
+        },
+        {
+            "name": "koremi",
+            "address": "https://ani.sjwon0368.dpdns.org",
+            "kind": 0
         }
     ]
 }
