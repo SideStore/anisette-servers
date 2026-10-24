@@ -99,6 +99,11 @@
             "name": "koremi",
             "address": "https://ani.sjwon0368.dpdns.org",
             "kind": 0
+        },
+        {
+            "name": "uwucloud",
+            "address": "https://ani.uwucloud.fun",
+            "kind": 0
         }
     ]
 }
