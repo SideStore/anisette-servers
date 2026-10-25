@@ -104,6 +104,11 @@
             "name": "uwucloud",
             "address": "https://ani.uwucloud.fun",
             "kind": 0
+        },
+        {
+            "name": "Lill q",
+            "address": "https://anisette.lillq.me",
+            "kind": 0
         }
     ]
 }
